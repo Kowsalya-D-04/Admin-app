@@ -1,0 +1,465 @@
+/* =========================================================
+   Admin.css – Premium Truck Booking Admin Panel
+   ========================================================= */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.25s ease,
+              color 0.25s ease,
+              box-shadow 0.25s ease,
+              transform 0.25s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6fb;
+  color: #2c3e50;
+}
+
+/* LOADING & ERROR */
+.loading-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #2563eb;
+}
+
+.loading,
+.error {
+  background: white;
+  margin: 2rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.loading { color: #2563eb; }
+
+.error {
+  color: #dc2626;
+  border-left: 5px solid #dc2626;
+}
+
+/* CONTAINER */
+.admin-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.admin-header {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: white;
+  padding: 1.8rem 2.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(239,68,68,0.4);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* NAVIGATION */
+.admin-nav {
+  display: flex;
+  gap: 0.5rem;
+  background: white;
+  padding: 0 2rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #e5e7eb;
+  overflow-x: auto;
+}
+
+.admin-nav button {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 1rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-nav button:hover {
+  color: #2563eb;
+  background: #f8fafc;
+}
+
+.admin-nav button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #2563eb;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.admin-nav button.active {
+  color: #2563eb;
+}
+
+.admin-nav button.active::after,
+.admin-nav button:hover::after {
+  width: 100%;
+}
+
+/* MAIN */
+.admin-main {
+  flex: 1;
+  padding: 2.5rem;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeSlide 0.4s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* DASHBOARD */
+.dashboard h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.dashboard-subtitle {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.8rem;
+}
+
+/* STAT CARD */
+.stat-card {
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(37,99,235,0.18),
+    transparent
+  );
+  opacity: 0;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card h3 {
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+.stat-value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0.6rem 0;
+}
+
+.stat-desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* REVENUE CARD */
+.revenue-card {
+  background: linear-gradient(135deg, #6366f1, #2563eb);
+  color: white;
+  box-shadow: 0 14px 35px rgba(99,102,241,0.45);
+}
+
+.revenue-card h3,
+.revenue-card .stat-value,
+.revenue-card .stat-desc {
+  color: white;
+}
+
+/* QUICK ACTIONS */
+.quick-actions {
+  margin-top: 2.5rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.quick-actions h3 {
+  margin-bottom: 1.2rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.action-btn:hover {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* TABLES */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.data-table thead {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.data-table th {
+  padding: 1.1rem 1.3rem;
+  color: white;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.data-table td {
+  padding: 1.1rem 1.3rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.data-table tbody tr:hover {
+  background: #eff6ff;
+  transform: scale(1.005);
+}
+
+.no-data {
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* STATUS BADGES */
+.status-badge {
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.status-approved,
+.status-active,
+.status-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-rejected,
+.status-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-assigned {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+/* BUTTONS */
+.btn-assign,
+.btn-approve {
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-assign {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-approve {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-assign:hover,
+.btn-approve:hover {
+  transform: translateY(-2px);
+}
+
+/* FORM CONTROLS */
+.assign-controls {
+  background: white;
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+}
+
+.assign-controls label {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.driver-select {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  width: 100%;
+  max-width: 320px;
+}
+
+.driver-select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .admin-main {
+    padding: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Trips Page Enhancements */
+
+.trip-id {
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+
+/* Trips Table Container */
+.trips-wrapper {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Table header improvement */
+.data-table thead th {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Row hover effect */
+.data-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f1f7ff;
+  transform: scale(1.005);
+}
+
+/* Status badge improvements */
+.status-badge {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+/* Trips title */
+.trips-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+}
+
+}
+  
